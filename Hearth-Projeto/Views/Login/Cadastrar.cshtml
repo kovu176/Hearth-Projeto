@@ -1,0 +1,122 @@
+﻿@using Hearth_Projeto.Enums;
+@model PessoaModel
+
+@{
+    ViewData["Tittle"] = "Criar Usuario";
+}
+
+
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/css/icone.css" asp-append-version="true">
+
+    <link rel="stylesheet" href="~/css/carrosel.login.css" asp-append-version="true">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/css/bootstrap.login.css" asp-append-version="true">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="~/css/login.css" asp-append-version="true">
+    <script src="~/js/jquery-3.3.1.min.js" asp-append-version="true"></script>
+    <script src="~/js/login.js" asp-append-version="true"></script>
+    <script src="~/js/popper.min.js" asp-append-version="true"></script>
+    <script src="~/js/bootstrap.min.js" asp-append-version="true"></script>
+
+
+
+</head>
+<body>
+
+
+
+    <div class="content">
+
+
+
+        <div class="container">
+
+
+
+
+
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="~/img/login/signup.png" asp-append-version="true" alt="Image" class="img-fluid">
+                </div>
+                <div class="col-md-6 contents">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8">
+                            <div class="mb-4">
+                                <h3>Cadastrar Usuario</h3>
+                                <p class="mb-4">Faça a diferença, mude vidas. </p>
+                            </div>
+                            <form asp-controller="Usuario" asp-action="Criar" method="post">
+                                <div class="form-group first">
+                                    <label for="username">Nome</label>
+                                    <input type="text" class="form-control" id="username" asp-for="Nome" >
+                                    @Html.ValidationMessageFor(x => x.Nome)
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="Email">Email</label>
+                                    <input type="email" asp-for="Email" class="form-control" >
+                                    @Html.ValidationMessageFor(x => x.Email)
+
+                                </div>
+
+                                <div class="form-group">
+                                   
+
+                                    <select asp-for="Perfil">
+                                        <option value="0">Selecione</option>
+                                        <option value="@PerfilEnum.Admin">Administrador</option> <!-- ADICIONA O ENUM PARA O PERFIL DO USUARIO   -->
+                                        <option value="@PerfilEnum.Comum">Padrão</option>
+                                        <option value="@PerfilEnum.Instituicao">Instituição</option>
+                                    </select>
+                                    @Html.ValidationMessageFor(x => x.Perfil)
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Login">Login</label>
+                                    <input type="text" asp-for="Login" class="form-control" >
+                                    @Html.ValidationMessageFor(x => x.Login)
+
+                                </div>
+
+
+
+                                <div class="form-group last mb-4">
+                                    <label for="password">Senha</label>
+                                    <input type="password" class="form-control" id="password" asp-for="Senha" >
+                                    @Html.ValidationMessageFor(x => x.Senha)
+
+                                </div>
+
+                               
+
+                                
+                                <input type="submit" value="Cadastrar" class="btn btn-block btn-primary" id="loggin">
+                                <input type="submit" value="Voltar" class="btn btn-block btn-primary" asp-controller="Home" asp-action="Index" id="loggin">
+
+
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+   
+</body>
+</html>

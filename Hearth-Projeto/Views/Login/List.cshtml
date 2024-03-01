@@ -1,0 +1,62 @@
+﻿@model List<PessoaModel>;
+
+@{
+    ViewData["Tittle"] = "Usuarios";
+}
+
+
+<div class="text-center">
+    <h1 class="display-4"> Usuarios  </h1>
+    
+
+ 
+
+
+
+
+
+
+    <table  class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Login </th>
+                <th scope="col">Email</th>
+                <th scope="col">Data Cadastro</th>
+                <th scope="col">Perfil Usuario</th>
+
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+           
+            @if (Model != null && Model.Any())
+            {
+                foreach (PessoaModel usuario in Model)
+                {
+                    <tr>
+
+
+                        <td scope="row">@usuario.Id</td>
+                        <td>@usuario.Nome</td>
+                        <td>@usuario.Login</td>
+                        <td>@usuario.Email</td>
+                        <td>@usuario.DataCadastro</td>
+                        <td>@(usuario.Perfil == Hearth_Projeto.Enums.PerfilEnum.Admin ? "Administrador" : "Comum")</td>
+
+                        <td>
+                            <div class="btn-group" role="group">
+                                <a role="button" class="btn btn-secondary" asp-route-id="@usuario.Id" asp-controller="Login" asp-action="Editar">Editar</a> <!--route id mostra qual ID será editado-->
+                                <a role="button" class="btn btn-secondary" asp-route-id="@usuario.Id" asp-controller="Login" asp-action="Deletar">Deletar</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+
+
+        </tbody>
+    </table>
+
+</div>

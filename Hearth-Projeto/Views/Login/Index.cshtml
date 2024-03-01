@@ -1,0 +1,108 @@
+﻿@model LoginModel
+@{
+	ViewData["Title"] = "Hearth || Login";
+}
+ 
+
+
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/css/icone.css" asp-append-version="true">
+
+    <link rel="stylesheet" href="~/css/carrosel.login.css" asp-append-version="true">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/css/bootstrap.login.css" asp-append-version="true">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="~/css/login.css" asp-append-version="true">
+    <script src ="~/js/jquery-3.3.1.min.js" asp-append-version="true"></script>
+    <script src="~/js/login.js" asp-append-version="true"></script>
+    <script src="~/js/popper.min.js" asp-append-version="true"></script>
+    <script src="~/js/bootstrap.min.js" asp-append-version="true"></script>
+
+
+
+</head>
+<body>
+
+
+
+    <div class="content">
+
+
+
+        <div class="container">
+          
+
+
+            @if (TempData["MensagemErro"] != null)
+            {
+                <div class="alert alert-danger" role="alert">
+                    <button type="button" class="btn btn-danger btn-sm close-alert" aria-label="Close">X</button>
+                    <p>@TempData["MensagemErro"]</p>
+                </div>
+
+            }
+
+
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="~/img/login/login.png" asp-append-version="true" alt="Image" class="img-fluid">
+                </div>
+                <div class="col-md-6 contents">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8">
+                            <div class="mb-4">
+                                <h3>Login</h3>
+                                <p class="mb-4">Faça a diferença, mude vidas. </p>
+                            </div>
+                            <form  asp-controller="Login" asp-action="Entrar" method="post">
+                                <div class="form-group first">
+                                    <label for="username">Usuario</label>
+                                    <input type="text" class="form-control" id="username" asp-for="Login">
+                                    @Html.ValidationMessageFor(x => x.Login)
+
+                                </div>
+                                <div class="form-group last mb-4">
+                                    <label for="password">Senha</label>
+                                    <input type="password" class="form-control" id="password" asp-for="Senha">
+                                    @Html.ValidationMessageFor(x => x.Senha)
+
+                                </div>
+
+                                <div class="d-flex mb-5 align-items-center">
+
+                                    <span class="ml-auto"><a href="#" class="forgot-pass" style="text-decoration: none ;">Esqueci a senha</a></span>
+                                </div>
+
+                                <input type="submit" value="Entrar" class="btn btn-block btn-primary" id="loggin">
+                                <input type="submit" value="Cadastrar" class="btn btn-block btn-primary" id="loggin" asp-controller="Login" asp-action="Cadastrar">
+                                <input type="submit" value="Voltar" class="btn btn-block btn-primary" asp-controller="Home" asp-action="Index" id="loggin">
+
+                                
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+  
+    <script>
+        $('.close-alert').click(() => {
+            $('.alert').hide('hide');  // Seleciona a classe close alert usa o evento de click e executa a funçao hide para fechar a notificaçao
+        })
+
+    </script>
+</body>
+</html>

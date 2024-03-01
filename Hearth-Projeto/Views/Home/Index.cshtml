@@ -1,0 +1,264 @@
+﻿@{
+    ViewData["Title"] = "Hearth || Home";
+}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+
+
+
+
+
+    <!-- NAVBAR-->
+    <header>
+        <div class="logo">
+            <img class="log" src="~/icons/home/Logo Hearth.png" alt="logo" asp-append-version="true">
+        </div>
+        <input type="checkbox" id="nav_check" hidden>
+
+        <nav>
+            <div class="logo">
+                <img class="log" src="~/icons/home/Logo Hearth.png" alt="logo" asp-append-version="true">
+
+            </div>
+
+
+
+            <ul>
+                <li>
+                    <div class="search">
+                        <input type="text" placeholder="Onde você mora?">
+                        <a href="#">
+                            <i class='bx bx-search'></i>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#" id="inicio"> <img class="nav_img" src="~/icons/home/home.png" width="18px" height="18px" asp-append-version="true"> Inicio  </a>
+                </li>
+                <li>
+                    <a asp-controller="Adotar" asp-action="Index" > <img class="nav_img" src="~/icons/home/dog.png" width="18px" height="18px" asp-append-version="true"> Adotar  </a>
+                </li>
+                <li>
+                    <a href="#"> <img class="nav_img" src="~/icons/home/contato.png" width="18px" height="18px" asp-append-version="true"> Contato </a>
+                </li>
+                @if (TempData["LoginSucesso"]!= null)
+                {
+                    <li>
+                        <a class="active"  asp-controller="Login" asp-action="List" > ADM </a>
+                    </li>
+                }
+              
+                <li>
+                    <a class="active"   asp-controller="Login" asp-action="Index"> Login </a>
+                </li>
+                <div class="theme-switch">
+                    <div class="switch"></div>
+                </div>
+
+
+
+
+            </ul>
+        </nav>
+        <label for="nav_check" class="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+
+        </label>
+
+    </header>
+
+
+    <!--tratativa ( CASO O CADASTRO TENHA FUNCIONADO) !-->
+    @if (TempData["MensagemSucesso"] != null)
+    {
+        <div class="alert alert-primary" role="alert">
+            <button type="button" class="btn btn-danger btn-sm close-alert" aria-label="Close">X</button>
+            @TempData["MensagemSucesso"]
+        </div>
+    }
+
+
+    <section class="category">
+        <div class="item">
+            <a href="#" class="animal"> <img src="~/icons/home/comunidade.png" asp-append-version="true"></a>
+            <a href="#" class="animal">Comunidade</a>
+        </div>
+        <div class="item">
+            <a href="#" class="animal"> <img src="~/icons/home/Animal.png" asp-append-version="true"></a>
+            <a href="#" class="animal">Animal</a>
+        </div>
+        <div class="item">
+            <a href="#" class="animal"> <img src="~/icons/home/ambiente.png" asp-append-version="true"></a>
+            <a href="#" class="animal">Ambiente</a>
+        </div>
+        <div class="item">
+            <a href="#" class="animal"> <img src="~/icons/home/Camping.png" asp-append-version="true"></a>
+            <a href="#" class="animal">Camping</a>
+        </div>
+        <div class="item">
+            <a href="#" class="animal"> <img src="~/icons/home/educacao.png" asp-append-version="true"></a>
+            <a href="#" class="animal">Educação</a>
+        </div>
+    </section>
+
+    <section class="main">
+
+        <div class="main_content">
+            <div class="project">
+                <a asp-controller="Projeto" asp-action="Index"><img src="https://d34ad2g4hirisc.cloudfront.net/volunteer_positions/photos/000/043/841/main/faf0cceab7538edca4054b3b67747826.jpeg"></a>
+                <a asp-controller="Projeto" asp-action="Index"> Matão, Brasil </a>
+                <a asp-controller="Projeto" asp-action="Index"> <p class="subtitle"> Animal </p> </a>
+
+
+            </div>
+            <div class="project">
+                <a href="#"><img src="https://d34ad2g4hirisc.cloudfront.net/volunteer_positions/photos/000/052/641/main/f3ccdd27d2000e3f9255a7e3e2c48800.jpg"></a>
+                <a href="#">  Arraial d Ajuda, Brasil</a>
+                <a href="#"> <p class="subtitle"> Camping </p> </a>
+
+            </div>
+            <div class="project">
+                <a href="#"><img src="https://d34ad2g4hirisc.cloudfront.net/volunteer_positions/photos/000/050/681/main/02b4b7572c767c3dff5ff08bee0b1a18.jpeg"></a>
+                <a href="#"> Manu, Peru</a>
+                <a href="#"> <p class="subtitle"> Ambiente </p> </a>
+
+            </div>
+            <div class="project">
+                <a href="#"><img src="https://d34ad2g4hirisc.cloudfront.net/volunteer_positions/photos/000/052/235/main/928c224260166a4a6bbfdef5f075b5f7.jpg"></a>
+                <a href="#"> Pombos, Brasil</a>
+                <a href="#"> <p class="subtitle"> Camping </p> </a>
+
+
+            </div>
+        </div>
+
+        <div class="main_content">
+            <div class="project">
+                <a href="#"><img src="https://d34ad2g4hirisc.cloudfront.net/volunteer_positions/photos/000/050/681/main/02b4b7572c767c3dff5ff08bee0b1a18.jpeg"></a>
+                <a href="#"> King County, Estados Unidos </a>
+                <a href="#"> <p class="subtitle"> Animal </p> </a>
+
+
+            </div>
+            <div class="project">
+                <a href="#"><img src="https://d34ad2g4hirisc.cloudfront.net/volunteer_positions/photos/000/055/859/main/12664216207ae6b6397bbb4d48c5bfe3.jpeg"></a>
+                <a href="#">Payne County, Estados Unidos</a>
+                <a href="#"> <p class="subtitle"> Animal </p> </a>
+
+            </div>
+            <div class="project">
+                <a href="#"><img src="https://d34ad2g4hirisc.cloudfront.net/volunteer_positions/photos/000/039/501/main/bf5dacc12239a67d5fec96039ac67055.jpg"></a>
+                <a href="#">Bradford, Estados Unidos</a>
+                <a href="#"> <p class="subtitle"> Animal </p> </a>
+
+            </div>
+            <div class="project">
+                <a href="#"><img src="https://d34ad2g4hirisc.cloudfront.net/volunteer_positions/photos/000/046/699/main/5e1daf3283351efbb0c51ba2b577eaeb.jpg"></a>
+                <a href="#">Aguas Buenas, Porto Rico</a>
+                <a href="#"> <p class="subtitle"> Animal </p> </a>
+
+            </div>
+        </div>
+
+        <div class="main_content">
+            <div class="project">
+                <a href="#"><img src="https://d34ad2g4hirisc.cloudfront.net/volunteer_positions/photos/000/050/681/main/02b4b7572c767c3dff5ff08bee0b1a18.jpeg"></a>
+                <a href="#">Puerto Lopez, Colômbia</a>
+                <a href="#"><p class="subtitle"> Comunidade </p></a>
+
+            </div>
+            <div class="project">
+                <a href=""><img src="https://d34ad2g4hirisc.cloudfront.net/volunteer_positions/photos/000/039/501/main/bf5dacc12239a67d5fec96039ac67055.jpg"></a>
+                <a href=""> San Diego, Estados Unidos </a>
+                <a href="#"><p class="subtitle"> Comunidade</p></a>
+
+
+            </div>
+            <div class="project">
+                <a href="#"><img src="https://d34ad2g4hirisc.cloudfront.net/volunteer_positions/photos/000/034/396/main/77a02f7120dc49bde64f020661f508bd.jpg"></a>
+                <a href="#">Kilombero, Tanzânia</a>
+                <a href="#"><p class="subtitle"> Educação </p></a>
+
+            </div>
+            <div class="project">
+                <a href=""><img src="https://d34ad2g4hirisc.cloudfront.net/volunteer_positions/photos/000/035/915/main/3dba2c4f702bd0ad52747af5684707ef.jpg"></a>
+                <a href=""> Iringa, Tanzânia </a>
+                <a href="#"><p class="subtitle"> Educação </p></a>
+
+            </div>
+        </div>
+
+        <div class="main_content">
+            <div class="project">
+                <a href=""></a>
+                <a href=""></a>
+
+            </div>
+            <div class="project">
+                <a href=""></a>
+                <a href=""></a>
+
+            </div>
+            <div class="project">
+                <a href=""></a>
+                <a href=""></a>
+
+            </div>
+            <div class="project">
+                <a href=""></a>
+                <a href=""></a>
+
+            </div>
+        </div>
+
+        <div class="main_content">
+            <div class="project">
+                <a href=""></a>
+                <a href=""></a>
+
+            </div>
+            <div class="project">
+                <a href=""></a>
+                <a href=""></a>
+
+            </div>
+            <div class="project">
+                <a href=""></a>
+                <a href=""></a>
+
+            </div>
+            <div class="project">
+                <a href=""></a>
+                <a href=""></a>
+
+            </div>
+        </div>
+
+
+
+
+    </section>
+    
+    <footer class="rdp">   ® Todos os direitos reservados, 2023. •  Privacidade. •  Termos.    </footer>
+
+    <script>
+        $('.close-alert').click(() => {
+            $('.alert').hide('hide');  // Seleciona a classe close alert usa o evento de click e executa a funçao hide para fechar a notificaçao
+        })
+
+    </script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script>
+        $(".theme-switch").on("click", () => {
+            $("body").toggleClass("light-theme")
+        })
+    </script>
+</body>
+</html>

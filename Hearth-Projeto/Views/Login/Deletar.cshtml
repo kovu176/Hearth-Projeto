@@ -1,0 +1,74 @@
+﻿@model PessoaModel
+
+@{
+    ViewData["Title"] = "Deletar Usuario";
+}
+
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/css/icone.css" asp-append-version="true">
+
+    <link rel="stylesheet" href="~/css/carrosel.login.css" asp-append-version="true">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/css/bootstrap.login.css" asp-append-version="true">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="~/css/login.css" asp-append-version="true">
+    <script src="~/js/jquery-3.3.1.min.js" asp-append-version="true"></script>
+    <script src="~/js/login.js" asp-append-version="true"></script>
+    <script src="~/js/popper.min.js" asp-append-version="true"></script>
+    <script src="~/js/bootstrap.min.js" asp-append-version="true"></script>
+
+
+
+</head>
+<body>
+
+
+
+    <div class="content">
+
+
+
+        <div class="container">
+
+
+
+
+
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="~/img/login/edit.png" asp-append-version="true" alt="Image" class="img-fluid">
+                </div>
+                <div class="col-md-6 contents">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8">
+                            <div class="mb-4">
+                                <h3>Deletar Usuario</h3>
+                                <p class="mb-4">Faça a diferença, mude vidas. </p>
+                                <h3>Deseja deletar o usuario @Model.Nome.ToUpper() ?   </h3>
+                            </div>
+
+                            <a class="btn btn-block btn-primary" id="loggin" role="button" asp-controller="Usuario" asp-action="Apagar" asp-route-id="@Model.Id" style="color:#fefefe"> Confirmar </a>
+                            <a class="btn btn-block btn-primary" id="loggin" role="button" asp-controller="Home" asp-action="Index" style="color:#fefefe"> Cancelar </a>
+                            
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+</html>
